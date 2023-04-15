@@ -4,13 +4,13 @@ from .models import Project
 from .forms import ProjectForm
 
 
-def learning_projects(request):
+def projects(request):
     projects = Project.objects.all().order_by('created')
     context = {'projects': projects}
     return render(request, 'projects/projects.html', context=context)
 
 
-def learning_project(request, pk):
+def project(request, pk):
     project = Project.objects.get(id=pk)
     context = {
         'project': project,
