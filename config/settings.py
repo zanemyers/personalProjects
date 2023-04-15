@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.learning_projects.apps.LearningProjectsConfig'
+    'apps.base.apps.BaseConfig',
+    'apps.learning_projects.apps.LearningProjectsConfig',
+    'apps.weather.apps.WeatherConfig'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'apps/base/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -120,15 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'images/'
+STATIC_URL = 'apps/base/static/'
+MEDIA_URL = 'apps/base/images/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'apps/base/static',
     # os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_ROOT = BASE_DIR / 'static/images'
+MEDIA_ROOT = BASE_DIR / 'apps/base/static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
