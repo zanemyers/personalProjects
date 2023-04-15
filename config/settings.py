@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.learning_projects.apps.LearningProjectsConfig'
+    'apps.base.apps.BaseConfig',
+    'apps.projects.apps.ProjectsConfig',
+    'apps.weather.apps.WeatherConfig'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'apps/base/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -2,7 +2,7 @@ from django.db import models
 import uuid
 
 
-class LearningProject(models.Model):
+class Project(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     # owner
     title = models.CharField(max_length=200)
@@ -35,7 +35,7 @@ class Review(models.Model):
 
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     # owner
-    project = models.ForeignKey(LearningProject, on_delete=models.CASCADE, null=True, blank=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
     value = models.CharField(max_length=50, choices=vote_type)
     created = models.DateTimeField(auto_now_add=True)

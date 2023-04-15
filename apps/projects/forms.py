@@ -1,15 +1,15 @@
 from django.forms import ModelForm
-from .models import LearningProject
+from .models import Project
 
 
-class LearningProjectForm(ModelForm):
+class ProjectForm(ModelForm):
     class Meta:
-        model = LearningProject
+        model = Project
         fields = '__all__'
         exclude = ['vote_total', 'vote_ratio']
 
     def __init__(self, *args, **kwargs):
-        super(LearningProjectForm, self).__init__(*args, **kwargs)
+        super(ProjectForm, self).__init__(*args, **kwargs)
 
         for key, value in self.fields.items():
             value.widget.attrs.update({'class': 'input', 'placeholder': value.label})
