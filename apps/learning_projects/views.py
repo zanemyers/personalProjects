@@ -15,7 +15,7 @@ def learning_project(request, pk):
     context = {
         'project': project,
     }
-    return render(request, 'learning_projects/single_learning_project.html', context=context)
+    return render(request, 'learning_projects/learning_projects.html', context=context)
 
 
 def create_project(request):

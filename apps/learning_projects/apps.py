@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class LearningProjectsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'learning_projects'
+    name = 'apps.learning_projects'
