@@ -8,7 +8,7 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('learning_projects', '0002_alter_learningproject_demo_link_and_more'),
+        ('projects', '0002_alter_learningproject_demo_link_and_more'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('value', models.CharField(choices=[('up', 'up'), ('down', 'down')], max_length=50)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('project', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='learning_projects.learningproject')),
+                ('project', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='projects.learningproject')),
             ],
         ),
     ]

@@ -7,7 +7,7 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('learning_projects', '0003_review'),
+        ('projects', '0003_review'),
     ]
 
     operations = [
@@ -22,6 +22,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='learningproject',
             name='tags',
-            field=models.ManyToManyField(blank=True, to='learning_projects.tag'),
+            field=models.ManyToManyField(blank=True, to='projects.tag'),
         ),
     ]

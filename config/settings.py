@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'apps.base.apps.BaseConfig',
-    'apps.learning_projects.apps.LearningProjectsConfig',
+    'apps.projects.apps.ProjectsConfig',
     'apps.weather.apps.WeatherConfig'
 ]
 
@@ -122,15 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'apps/base/static/'
-MEDIA_URL = 'apps/base/images/'
+STATIC_URL = 'static/'
+MEDIA_URL = 'images/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'apps/base/static',
+    BASE_DIR / 'static',
     # os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_ROOT = BASE_DIR / 'apps/base/static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
