@@ -49,7 +49,7 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            messages.error(request, 'Login successful.')
+            messages.success(request, 'Login successful.')
             return redirect('profiles')
         else:
             messages.error(request, 'Username or Password is incorrect.')
@@ -59,13 +59,13 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    messages.success(request, 'You have been logged out.')
+    messages.info(request, 'You have been logged out.')
     return redirect('login')
 
 
 def registerUser(request):
     page = 'register'
-    form = CustomUserCreationForm
+    form = CustomUserCreationForm()
     context = {
         'page': page,
         'form': form,
@@ -84,6 +84,7 @@ def registerUser(request):
 
             return redirect('profiles')
         else:
+            context['form'] = form
             messages.error(request, 'An error has occurred during registration.')
 
     return render(request, 'users/login_register.html', context=context)
