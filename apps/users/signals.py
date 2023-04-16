@@ -13,6 +13,8 @@ def createProfile(sender, instance, created, **kwargs):
         Profile.objects.create(
             user=instance,
             username=user.username,
+            email=user.email,
+            name=user.first_name + ' ' + user.last_name,
         )
     else:
         user = Profile.objects.get(user=instance)
