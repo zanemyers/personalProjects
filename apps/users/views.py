@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 from django.contrib.auth import login, authenticate, logout
 from .models import Profile
 
@@ -24,7 +24,7 @@ def userProfile(request, pk):
         'top_skills': top_skills,
         'other_skills': other_skills,
     }
-    return render(request, 'users/user-profile.html', context=context)
+    return render(request, 'users/user_ profile.html', context=context)
 
 
 def loginUser(request):
@@ -88,3 +88,27 @@ def registerUser(request):
             messages.error(request, 'An error has occurred during registration.')
 
     return render(request, 'users/login_register.html', context=context)
+
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+    context = {
+        'profile': profile,
+        'skills': skills,
+        'projects': projects,
+    }
+    return render(request, 'users/account.html', context=context)
+
+
+@login_required(login_url='login')
+def editAccount(request):
+    profile = request.user.profile
+    form = ProfileForm()
+    context = {
+        'form': form,
+        'profile': profile,
+    }
+    return render(request, 'users/profile_form.html', context=context)
